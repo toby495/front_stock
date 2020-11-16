@@ -28,7 +28,7 @@ handleChange = (e) =>{
         return <div className="login-main">
            <header className="head">
                 <div className="logo">
-                    <img src="" alt=""/>
+                    <img src="https://www.intekel.com/es/assets/images/logo.png" alt=""/>
                 </div>
                 <div className="sesion">
                     <h1>Iniciar Sesión</h1>

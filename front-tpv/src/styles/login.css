@@ -1,8 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
+    background: url(../media/login-wallpaper.jpg) no-repeat fixed center;
+    background-size: cover;
     padding: 0;
     margin: 0;
 }
@@ -11,17 +14,26 @@ body {
 /*Clases---------------------------------------------------------------------------------------------------*/
 
 .login-main {
+    transform: translate(0%, 80%);
     display: grid;
+    row-gap: 20px;
     grid-template-areas: 'head head head head head ''form form form form form ';
     text-align: center;
 }
 
 .head {
     grid-area: head;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .formulario {
     grid-area: form;
+}
+
+.sesion {
+    color: white;
 }
 
 
