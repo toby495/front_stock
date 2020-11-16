@@ -1,5 +1,8 @@
 import React from 'react';
 import '../styles/login.css';
+import '../styles/login_desktop.css'
+import '../styles/keyframes.css'
+import '../styles/login_mobile.css'
 
 export default class Login extends React.Component{
 
@@ -27,20 +30,20 @@ handleChange = (e) =>{
     render(){
         return <div className="login-main">
            <header className="head">
-                <div className="logo">
+                <div className="logo fadeInRight">
                     <img src="https://www.intekel.com/es/assets/images/logo.png" alt=""/>
                 </div>
                 <div className="sesion">
                     <h1>Iniciar Sesión</h1>
                 </div>
            </header>
-           <section className="formulario">
+           <section className="formulario fadeInLeft">
             <form onSubmit={this.handleSubmit}>
-                <label>Nombre</label> 
-                <input onChange={this.handleChange} type="text" name="user"  /> <br/>
+                <label >Nombre</label> 
+                <input onChange={this.handleChange} type="text" name="user" required /> <br/> <br/>
                 <label>Contraseña</label>
-                 <input onChange={this.handleChange} type="password" name="password"  /> <br/>
-                <button>Entrar</button>
+                 <input id="contraseña" onChange={this.handleChange} type="password" name="password" required /> <br/> <br/>
+                <button id="log">Entrar</button>
             </form>
            </section>
         </div>

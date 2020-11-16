@@ -10,11 +10,23 @@ body {
     margin: 0;
 }
 
+label {
+    font-weight: 700;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+input {
+    border: none;
+    padding: 10px;
+    background-color: white;
+}
+
 
 /*Clases---------------------------------------------------------------------------------------------------*/
 
 .login-main {
-    transform: translate(0%, 80%);
+    transform: translate(0%, 55%);
     display: grid;
     row-gap: 20px;
     grid-template-areas: 'head head head head head ''form form form form form ';
@@ -32,9 +44,22 @@ body {
     grid-area: form;
 }
 
-.sesion {
-    color: white;
+
+/*FinClases---------------------------------------------------------------------------------------------------*/
+
+
+/*Id's---------------------------------------------------------------------------------------------------*/
+
+#log {
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#contraseña {
+    width: 150px;
 }
 
 
-/*FinClases---------------------------------------------------------------------------------------------------*/
+/*FinId's---------------------------------------------------------------------------------------------------*/
