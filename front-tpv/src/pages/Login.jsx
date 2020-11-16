@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/login.css';
-import '../styles/login_desktop.css'
-import '../styles/keyframes.css'
-import '../styles/login_mobile.css'
+import '../login-styles/login.css';
+import '../login-styles/login_desktop.css';
+import '../login-styles/login_mobile.css';
+
 
 export default class Login extends React.Component{
 

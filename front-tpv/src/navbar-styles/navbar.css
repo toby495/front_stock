@@ -1,0 +1,41 @@
+* {
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-nav {
+    display: flex;
+}
+
+ul {
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    text-align: center;
+}
+
+button {
+    height: auto;
+    transform: skew(15deg);
+    padding: 30px;
+    width: 300px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+/*Clases---------------------------------------------------------------------------------------------------*/
+
+
+/*FinClases---------------------------------------------------------------------------------------------------*/
+
+
+/*Id's---------------------------------------------------------------------------------------------------*/
+
+
+/*FinId's---------------------------------------------------------------------------------------------------*/
