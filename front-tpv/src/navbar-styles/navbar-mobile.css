@@ -1,6 +1,6 @@
 @media (max-width:400px) {
-    button {
-        max-width: 80px;
+    .type {
+        max-width: 73px;
         font-size: 10px;
         padding: 10px;
     }
@@ -10,7 +10,7 @@
 }
 
 @media(min-width:401px) {
-    button {
+    .type {
         max-width: 90px;
         font-size: 10px;
         padding: 10px;
@@ -21,7 +21,7 @@
 }
 
 @media(min-width:500px) {
-    #type {
+    .type {
         max-width: 110px;
         font-size: 15px;
         padding: 10px;
@@ -32,7 +32,7 @@
 }
 
 @media (min-width:670px) {
-    #type {
+    .type {
         max-width: 160px;
         font-size: 20px;
         padding: 10px;
