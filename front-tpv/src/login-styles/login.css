@@ -3,11 +3,13 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    background: url(../media/login-wallpaper.jpg) no-repeat fixed center;
-    background-size: cover;
-    padding: 0;
     margin: 0;
+    height: 100%;
 }
 
 label {
@@ -26,11 +28,13 @@ input {
 /*Clases---------------------------------------------------------------------------------------------------*/
 
 .login-main {
-    transform: translate(0%, 55%);
-    display: grid;
-    row-gap: 20px;
-    grid-template-areas: 'head head head head head ''form form form form form ';
+    background: url(../media/login-wallpaper.jpg) no-repeat fixed center;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
 }
 
 .head {
@@ -51,6 +55,7 @@ input {
 /*Id's---------------------------------------------------------------------------------------------------*/
 
 #log {
+    clear: both;
     border: none;
     padding: 10px;
     font-size: 20px;

@@ -37,7 +37,7 @@ export default class NavBar extends React.Component{
                <ul>
                    {this.state.section.map((type)=>{
                        return <li key={type.id}>
-                           <button>{type.name}</button>
+                           <button id="type">{type.name}</button>
                        </li>
                    })}
                </ul>

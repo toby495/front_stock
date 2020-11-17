@@ -21,7 +21,7 @@
 }
 
 @media(min-width:500px) {
-    button {
+    #type {
         max-width: 110px;
         font-size: 15px;
         padding: 10px;
@@ -32,7 +32,7 @@
 }
 
 @media (min-width:670px) {
-    button {
+    #type {
         max-width: 160px;
         font-size: 20px;
         padding: 10px;

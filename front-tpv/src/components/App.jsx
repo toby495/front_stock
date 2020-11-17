@@ -9,10 +9,9 @@ import Categorias from '../pages/Categorias';
 function App(){
     return <BrowserRouter>
         <Switch>      
-                <Route exact path='/Categorias' component={Categorias}/>
+               <Route exact path='/Categorias' component={Categorias}/>
                <Route exact path='/Login' component={Login} />
-               <Route exact path='/NavBar' component={NavBar}/>
-               <Route path='/' component={Error} />
+               <Route exact path='/' component={Error} />
         </Switch>
         </BrowserRouter>
 }
