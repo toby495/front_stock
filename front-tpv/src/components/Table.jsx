@@ -2,6 +2,9 @@ import React from 'react';
 import '../table-style/table.css'
 
 export default class Table extends React.Component{
+
+
+  
     render(){
         return <div className="main-table">
             <table className="cat-table">
@@ -10,11 +13,20 @@ export default class Table extends React.Component{
                      <th className="cat-th">{this.props.inv.dato1}{this.props.suc.dato1}{this.props.emp.dato1}</th>
                      <th className="cat-th">{this.props.inv.dato2}{this.props.suc.dato2}{this.props.emp.dato2}</th>
                 </tr>
-                <tr className="cat-tr">
-                    <td className="cat-td">Unos</td>
-                    <td className="cat-td">Dos</td>
-                    <td className="cat-td">3</td>
-                </tr>
+                {this.props.listInv.map((empleado)=>{
+                    return <tr key={empleado.id} style={{fontSize:this.props.visiInve}} >
+                        <td>{empleado.id}</td>
+                        <td> {empleado.name} </td>
+                        <td> {empleado.episode} </td>
+                    </tr>
+                })}
+                {this.props.listSucu.map((sucu)=>{
+                    return <tr key={sucu.id} style={{fontSize:this.props.visiSucu}} d>
+                        <td> {sucu.id} </td>
+                        <td> {sucu.name} </td>
+                        <td> {sucu.type} </td>
+                    </tr>
+                })}            
             </table>
         </div>
     }

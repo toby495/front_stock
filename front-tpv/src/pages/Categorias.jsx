@@ -1,7 +1,8 @@
 import React from 'react';
-import '../navbar-styles/navbar.css'
-import '../navbar-styles/navbar-mobile.css'
-import Table from '../components/Table'
+import '../navbar-styles/navbar.css';
+import '../navbar-styles/navbar-mobile.css';
+import Table from '../components/Table';
+import Axios from 'axios';
 export default class Categorias extends React.Component{
 
     constructor(props){
@@ -13,7 +14,8 @@ export default class Categorias extends React.Component{
                     id:'IDProducto',
                     dato1:'Nombre del producto',
                     dato2:'Precio'
-                }
+                },
+                visibilidad: '0'
             },
             sucu:{
                 borde:'',
@@ -21,7 +23,8 @@ export default class Categorias extends React.Component{
                     id:'',
                     dato1:'',
                     dato2:''
-                }
+                },
+                visibilidad:'0'
             },
             emple:{
                 borde:'',
@@ -29,57 +32,42 @@ export default class Categorias extends React.Component{
                     id:'',
                     dato1:'',
                     dato2:''
-                }  
+                },
+                visibilidad:'0'
+            },
+            episode:{
+                results:[]
+            },
+            location:{
+                results:[]
             }
         }
     }
 
+    componentDidMount(){
+        this.handleSucu();
+        this.handleEmpl();
+        this.handleInve();
+    }
    handleInve = (e) =>{
-        this.setState({
-            inve:{
-                borde:'dashed',
-                datos:{
-                    id:'IDProducto',
-                    dato1:'Nombre del producto',
-                    dato2:'Precio'
-                }
-            },
-            sucu:{
-                borde:'',
-                datos:{
-                    id:'',
-                    dato1:'',
-                    dato2:''
-                }
-            },
-            emple:{
-                borde:'',
-                datos:{
-                    id:'',
-                    dato1:'',
-                    dato2:''
-                }  
-            }
-        })
-   }
-
-   handleSucu = (e) =>{
-    this.setState({
+       this.setState({
         inve:{
+            borde:'dashed',
+            datos:{
+                id:'IDProducto',
+                dato1:'Nombre del producto',
+                dato2:'Precio'
+            },
+            visibilidad:'18px'
+        },
+        sucu:{
             borde:'',
             datos:{
                 id:'',
-                dato2:'',
+                dato1:'',
                 dato2:''
-            }
-        },
-        sucu:{
-            borde:'dashed',
-            datos:{
-                id:'IDSucursal',
-                dato1:'Nombre de la sucursal',
-                dato2:'Dirección'
-            }
+            },
+            visibilidad:'0'
         },
         emple:{
             borde:'',
@@ -87,10 +75,55 @@ export default class Categorias extends React.Component{
                 id:'',
                 dato1:'',
                 dato2:''
-            }  
+            },
+            visibilidad:'0'
+           
         }
+       })
+       Axios.get('https://rickandmortyapi.com/api/episode').then((inve)=>{
+           this.setState({
+               episode: inve.data
+           })
+       })
+   }
+
+   handleSucu = (e) =>{
+       this.setState({
+        inve:{
+            borde:'',
+            datos:{
+                id:'',
+                dato1:'',
+                dato2:''
+            },
+            visibilidad:'0'
+        },
+        sucu:{
+            borde:'dashed',
+            datos:{
+                id:'IDSucursal',
+                dato1:'Nombre de la sucursal',
+                dato2:'Dirección'
+            },
+            visibilidad:'18px'
+        },
+        emple:{
+            borde:'',
+            datos:{
+                id:'',
+                dato1:'',
+                dato2:''
+            },
+            visibilidad:'0'
+        }
+       })
+   Axios.get('https://rickandmortyapi.com/api/location/').then((sucursal)=>{
+    this.setState({
+        location: sucursal.data
     })
+   })
 }
+
 
 handleEmpl = (e) =>{
     this.setState({
@@ -116,10 +149,11 @@ handleEmpl = (e) =>{
                 id:'IDEmpleado',
                 dato1:'Nombre del Empleado',
                 dato2:'IDTienda'
-            }  
+            }
         }
     })
 }
+
 
 
     render(){
@@ -138,12 +172,12 @@ handleEmpl = (e) =>{
                    </li>
                    <li>
                        <button className="type">Ventas</button>
-                   </li>
+                   </li>      
                </ul>
             </div>
                 
                 <div>
-                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos}/>
+                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} />
                 </div>
             </div>
             
