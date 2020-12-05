@@ -15,7 +15,7 @@ export default class Categorias extends React.Component{
                     dato1:'Nombre del producto',
                     dato2:'Precio'
                 },
-                visibilidad: '0'
+                visibilidad: ''
             },
             sucu:{
                 borde:'',
@@ -24,7 +24,7 @@ export default class Categorias extends React.Component{
                     dato1:'',
                     dato2:''
                 },
-                visibilidad:'0'
+                visibilidad:''
             },
             emple:{
                 borde:'',
@@ -33,12 +33,15 @@ export default class Categorias extends React.Component{
                     dato1:'',
                     dato2:''
                 },
-                visibilidad:'0'
+                visibilidad:''
             },
             episode:{
                 results:[]
             },
             location:{
+                results:[]
+            },
+            characters:{
                 results:[]
             }
         }
@@ -49,7 +52,7 @@ export default class Categorias extends React.Component{
         this.handleEmpl();
         this.handleInve();
     }
-   handleInve = (e) =>{
+   handleInve = () =>{
        this.setState({
         inve:{
             borde:'dashed',
@@ -58,7 +61,7 @@ export default class Categorias extends React.Component{
                 dato1:'Nombre del producto',
                 dato2:'Precio'
             },
-            visibilidad:'18px'
+            visibilidad:''
         },
         sucu:{
             borde:'',
@@ -67,7 +70,7 @@ export default class Categorias extends React.Component{
                 dato1:'',
                 dato2:''
             },
-            visibilidad:'0'
+            visibilidad:'none'
         },
         emple:{
             borde:'',
@@ -76,7 +79,7 @@ export default class Categorias extends React.Component{
                 dato1:'',
                 dato2:''
             },
-            visibilidad:'0'
+            visibilidad:'none'
            
         }
        })
@@ -87,7 +90,7 @@ export default class Categorias extends React.Component{
        })
    }
 
-   handleSucu = (e) =>{
+   handleSucu = () =>{
        this.setState({
         inve:{
             borde:'',
@@ -96,7 +99,7 @@ export default class Categorias extends React.Component{
                 dato1:'',
                 dato2:''
             },
-            visibilidad:'0'
+            visibilidad:'none'
         },
         sucu:{
             borde:'dashed',
@@ -105,7 +108,7 @@ export default class Categorias extends React.Component{
                 dato1:'Nombre de la sucursal',
                 dato2:'Dirección'
             },
-            visibilidad:'18px'
+            visibilidad:''
         },
         emple:{
             borde:'',
@@ -114,7 +117,7 @@ export default class Categorias extends React.Component{
                 dato1:'',
                 dato2:''
             },
-            visibilidad:'0'
+            visibilidad:'none'
         }
        })
    Axios.get('https://rickandmortyapi.com/api/location/').then((sucursal)=>{
@@ -125,7 +128,7 @@ export default class Categorias extends React.Component{
 }
 
 
-handleEmpl = (e) =>{
+handleEmpl = () =>{
     this.setState({
         inve:{
             borde:'',
@@ -133,7 +136,8 @@ handleEmpl = (e) =>{
                 id:'',
                 dato1:'',
                 dato2:''
-            }
+            },
+            visibilidad:'none'
         },
         sucu:{
             borde:'',
@@ -141,7 +145,8 @@ handleEmpl = (e) =>{
                 id:'',
                 dato1:'',
                 dato2:''
-            }
+            },
+            visibilidad:'none'
         },
         emple:{
             borde:'dashed',
@@ -149,8 +154,14 @@ handleEmpl = (e) =>{
                 id:'IDEmpleado',
                 dato1:'Nombre del Empleado',
                 dato2:'IDTienda'
-            }
+            },
+            visibilidad:''
         }
+    })
+    Axios.get('https://rickandmortyapi.com/api/character/').then((character)=>{
+        this.setState({
+            characters: character.data
+        });
     })
 }
 
@@ -177,7 +188,7 @@ handleEmpl = (e) =>{
             </div>
                 
                 <div>
-                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} />
+                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} />
                 </div>
             </div>
             
