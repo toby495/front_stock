@@ -125,10 +125,9 @@ export default class Categorias extends React.Component{
         location: sucursal.data
     })
    })
-}
+    }
 
-
-handleEmpl = () =>{
+    handleEmpl = () =>{
     this.setState({
         inve:{
             borde:'',
@@ -163,7 +162,7 @@ handleEmpl = () =>{
             characters: character.data
         });
     })
-}
+    }
 
 
 
@@ -186,12 +185,26 @@ handleEmpl = () =>{
                    </li>      
                </ul>
             </div>
-                
                 <div>
                     <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} />
                 </div>
+                <div className="main-buttons">
+                <div className="inv-buttons">
+                    <button style={{display:this.state.inve.visibilidad}}>Visualizar Producto</button>
+                    <button style={{display:this.state.inve.visibilidad}}>Producto Nuevo</button>
+                </div>
+                <div className="suc-buttons">
+                    <button style={{display:this.state.sucu.visibilidad}}>Visualizar Sucursal</button>
+                    <button style={{display:this.state.sucu.visibilidad}}>Nueva Sucursal</button>
+                </div>
+                <div className="emp-buttons">
+                    <button style={{display:this.state.emple.visibilidad}}>Visualizar Empleado</button>
+                    <button style={{display:this.state.emple.visibilidad}}>Nuevo Empleado</button>
+                </div>  
+                </div>
+               
             </div>
-            
+
         )
     }
 }

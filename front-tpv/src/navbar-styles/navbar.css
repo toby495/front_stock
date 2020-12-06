@@ -4,10 +4,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.main-nav {
-    display: flex;
-}
-
 ul {
     width: 100%;
     padding: 0px;
@@ -22,6 +18,39 @@ li {
 
 /*Clases---------------------------------------------------------------------------------------------------*/
 
+.inv-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inv-buttons button {
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+.suc-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.suc-buttons button {
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+.emp-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.emp-buttons button {
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
 .type {
     height: auto;
     transform: skew(15deg);
@@ -29,6 +58,10 @@ li {
     width: 300px;
     font-size: 20px;
     font-weight: 500;
+}
+
+.main-buttons div {
+    display: flex;
 }
 
 
