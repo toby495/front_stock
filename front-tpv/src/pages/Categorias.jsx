@@ -2,6 +2,7 @@ import React from 'react';
 import '../navbar-styles/navbar.css';
 import '../navbar-styles/navbar-mobile.css';
 import Table from '../components/Table';
+import Search from '../components/Search';
 import Axios from 'axios';
 export default class Categorias extends React.Component{
 
@@ -184,6 +185,9 @@ export default class Categorias extends React.Component{
                        <button className="type">Ventas</button>
                    </li>      
                </ul>
+            </div>
+            <div className="main-search">
+                <Search/>
             </div>
                 <div>
                     <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} />

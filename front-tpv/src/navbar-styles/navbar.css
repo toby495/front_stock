@@ -2,6 +2,7 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    outline: none;
 }
 
 ul {
@@ -9,6 +10,7 @@ ul {
     padding: 0px;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 li {
@@ -17,6 +19,20 @@ li {
 
 
 /*Clases---------------------------------------------------------------------------------------------------*/
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.search-bar input {
+    border: 2px solid black;
+    border-radius: 20px;
+    outline: none;
+    padding: 11px;
+    width: 700px;
+}
 
 .inv-buttons {
     display: flex;
