@@ -44,7 +44,7 @@ handleChange = (e) =>{
                 <input className="input" onChange={this.handleChange} type="text" name="user" required  placeholder="Usuario"/> <br/> <br/>
                 
                  <input className="input" onChange={this.handleChange} type="password" name="password" required placeholder="Contraseña" /> <br/> <br/>
-              <Link to="/Categorias"> <button id="log">Entrar</button></Link> 
+              <Link to="/Categorias"> <button id="log">ENTRAR</button></Link> 
             </form>
            </section>
            

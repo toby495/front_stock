@@ -5,16 +5,9 @@
     outline: none;
 }
 
-ul {
-    width: 100%;
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
-
-li {
-    text-align: center;
+li img {
+    cursor: pointer;
+    padding: 3px;
 }
 
 
@@ -27,11 +20,11 @@ li {
 }
 
 .search-bar input {
-    border: 2px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.104);
     border-radius: 20px;
     outline: none;
     padding: 11px;
-    width: 700px;
+    width: 850px;
 }
 
 .inv-buttons {
@@ -42,18 +35,26 @@ li {
 .inv-buttons button {
     margin: 10px;
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    width: 170px;
+    background-color: white;
+    font-weight: 600;
+    border: none;
 }
 
 .suc-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around
 }
 
 .suc-buttons button {
     margin: 10px;
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    width: 170px;
+    background-color: white;
+    border: none;
+    font-weight: 600;
 }
 
 .emp-buttons {
@@ -64,20 +65,85 @@ li {
 .emp-buttons button {
     margin: 10px;
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    width: 170px;
+    background-color: white;
+    border: none;
+    font-weight: 600;
 }
 
 .type {
     height: auto;
-    transform: skew(15deg);
-    padding: 30px;
-    width: 300px;
+    padding: 10px;
+    width: 100px;
     font-size: 20px;
     font-weight: 500;
 }
 
 .main-buttons div {
     display: flex;
+}
+
+.banner-container {
+    background: url(../media/2431350.jpg) no-repeat fixed center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 45px 10px 60px;
+}
+
+.main-buttons {
+    grid-area: but;
+}
+
+.main-nav {
+    grid-area: nav;
+    background-color: #082575;
+    position: fixed;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+}
+
+.banner {
+    grid-area: ban;
+    position: relative;
+}
+
+.main-search {
+    grid-area: sear;
+}
+
+.main-tab {
+    grid-area: tab;
+    display: flex;
+    justify-content: center;
+}
+
+.categorias-main {
+    display: flex;
+    flex-direction: column;
+    grid-template-areas: 'nav ban ban ban ban ' 'nav but but but but' 'nav sear sear sear sear' 'nav tab tab tab tab';
+}
+
+.banner-container img {
+    width: 100px;
+    height: auto;
+}
+
+.banner-container h2 {
+    margin: 0;
+    color: white;
+    font-weight: 520;
+    font-size: 20px;
 }
 
 

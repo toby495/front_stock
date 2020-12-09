@@ -12,10 +12,21 @@
 
 .cat-th {
     width: 250px;
-    border: 1px solid black;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.104);
 }
 
 .main-table td {
-    padding: 10px;
-    border: 1px solid black;
+    padding: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.097);
+}
+
+th {
+    color: grey;
+    font-weight: bolder;
+}
+
+td {
+    color: grey;
+    font-weight: 500;
+    background-color: rgba(128, 128, 128, 0.09);
 }

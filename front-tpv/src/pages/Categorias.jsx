@@ -1,16 +1,21 @@
 import React from 'react';
 import '../navbar-styles/navbar.css';
-import '../navbar-styles/navbar-mobile.css';
 import Table from '../components/Table';
 import Search from '../components/Search';
+import Banner from '../components/Banner';
 import Axios from 'axios';
+import iInve from '../media/Grupo 4.png';
+import iSucu from '../media/Grupo 7.png';
+import iEmpl from '../media/Grupo 5.png';
+import iVent from '../media/Grupo 9.png';
 export default class Categorias extends React.Component{
 
     constructor(props){
         super(props);
         this.state ={
             inve:{
-                borde:'dashed',
+                name: 'INVENTARIO',
+                borde:'solid white',
                 datos:{
                     id:'IDProducto',
                     dato1:'Nombre del producto',
@@ -19,6 +24,7 @@ export default class Categorias extends React.Component{
                 visibilidad: ''
             },
             sucu:{
+                name: '',
                 borde:'',
                 datos:{
                     id:'',
@@ -28,6 +34,7 @@ export default class Categorias extends React.Component{
                 visibilidad:''
             },
             emple:{
+                name: '',
                 borde:'',
                 datos:{
                     id:'',
@@ -58,7 +65,8 @@ export default class Categorias extends React.Component{
    handleInve = () =>{
        this.setState({
         inve:{
-            borde:'dashed',
+            name: 'INVENTARIO',
+            borde:'solid white',
             datos:{
                 id:'IDProducto',
                 dato1:'Nombre del producto',
@@ -67,6 +75,7 @@ export default class Categorias extends React.Component{
             visibilidad:''
         },
         sucu:{
+            name:'',
             borde:'',
             datos:{
                 id:'',
@@ -76,6 +85,7 @@ export default class Categorias extends React.Component{
             visibilidad:'none'
         },
         emple:{
+            name:'',
             borde:'',
             datos:{
                 id:'',
@@ -102,6 +112,7 @@ export default class Categorias extends React.Component{
    handleSucu = () =>{
        this.setState({
         inve:{
+            name:'',
             borde:'',
             datos:{
                 id:'',
@@ -111,7 +122,8 @@ export default class Categorias extends React.Component{
             visibilidad:'none'
         },
         sucu:{
-            borde:'dashed',
+            name:'SUCURSALES',
+            borde:'solid white',
             datos:{
                 id:'IDSucursal',
                 dato1:'Nombre de la sucursal',
@@ -120,6 +132,7 @@ export default class Categorias extends React.Component{
             visibilidad:''
         },
         emple:{
+            name:'',
             borde:'',
             datos:{
                 id:'',
@@ -146,6 +159,7 @@ export default class Categorias extends React.Component{
     handleEmpl = () =>{
     this.setState({
         inve:{
+            name:'',
             borde:'',
             datos:{
                 id:'',
@@ -155,6 +169,7 @@ export default class Categorias extends React.Component{
             visibilidad:'none'
         },
         sucu:{
+            name:'',
             borde:'',
             datos:{
                 id:'',
@@ -164,7 +179,8 @@ export default class Categorias extends React.Component{
             visibilidad:'none'
         },
         emple:{
-            borde:'dashed',
+            name:'EMPLEADOS',
+            borde:'solid white',
             datos:{
                 id:'IDEmpleado',
                 dato1:'Nombre del Empleado',
@@ -191,45 +207,60 @@ export default class Categorias extends React.Component{
 
     render(){
         return(
-            <div className="categorias-main">
-                <div className="main-nav">
+        <div className="categorias-main">
+
+            <div className="main-nav">
                <ul>
-                   <li>
-                       <button onClick={this.handleInve} style={{border:this.state.inve.borde}} className="type">Inventario</button>
-                   </li>
-                   <li>
-                       <button onClick={this.handleSucu} style={{border:this.state.sucu.borde}} className="type">Sucursales</button>
-                   </li>
-                   <li>
-                       <button onClick={this.handleEmpl} style={{border:this.state.emple.borde}} className="type">Empleados</button>
-                   </li>
-                   <li>
-                       <button className="type">Ventas</button>
-                   </li>      
+                  <li style={{border:this.state.inve.borde}}>
+                    <img  src={iInve} alt="" onClick={this.handleInve} /> 
+                  </li>   
+                  <li  style={{border:this.state.sucu.borde}}>
+                    <img src={iSucu} alt="" onClick={this.handleSucu} />
+                  </li>
+                  <li style={{border:this.state.emple.borde}}>
+                    <img src={iEmpl} alt="" onClick={this.handleEmpl}  />
+                  </li>
+                  <li>
+                      <img src={iVent} alt=""  />
+                  </li>
                </ul>
+
             </div>
-            <div className="main-search">
-                <Search/>
+
+
+            <div className="banner">
+                    <Banner invName={this.state.inve.name} sucuName={this.state.sucu.name}  emplName={this.state.emple.name}/>
             </div>
-                <div>
-                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} load={this.state.loading}/>
-                </div>
-                <div className="main-buttons">
+              
+            <div className="main-buttons">
                 <div className="inv-buttons">
+                    <button style={{display:this.state.inve.visibilidad}}>Inventario</button>
                     <button style={{display:this.state.inve.visibilidad}}>Visualizar Producto</button>
                     <button style={{display:this.state.inve.visibilidad}}>Producto Nuevo</button>
                 </div>
                 <div className="suc-buttons">
+                    
                     <button style={{display:this.state.sucu.visibilidad}}>Visualizar Sucursal</button>
                     <button style={{display:this.state.sucu.visibilidad}}>Nueva Sucursal</button>
                 </div>
                 <div className="emp-buttons">
+                  
                     <button style={{display:this.state.emple.visibilidad}}>Visualizar Empleado</button>
                     <button style={{display:this.state.emple.visibilidad}}>Nuevo Empleado</button>
                 </div>  
-                </div>
-               
             </div>
+
+            <div className="main-search">
+                <Search/>
+            </div>
+
+            <div className="main-tab">
+                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} load={this.state.loading}/>
+            </div>
+
+           
+               
+        </div>
 
         )
     }
