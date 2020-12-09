@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../media/logoIntekel.png';
 import '../login-styles/login.css';
 import '../login-styles/login_desktop.css';
 import {Link} from 'react-router-dom';
@@ -33,16 +34,16 @@ handleChange = (e) =>{
         return <div className="login-main">
            <section className="head">
                 <div className="logo fadeInRight">
-                    <img src="https://www.intekel.com/es/assets/images/logo.png" alt=""/>
+                    <img src={Logo} alt=""/>
                 </div>
                 <div className="sesion">
-                    <h1>Iniciar Sesión</h1>
+                    <h3>TERMINAL PUNTO DE VENTA</h3>
                 </div>
                 <form onSubmit={this.handleSubmit} className="fadeInLeft">
-                <label >Nombre</label> 
-                <input onChange={this.handleChange} type="text" name="user" required /> <br/> <br/>
-                <label>Contraseña</label>
-                 <input id="contraseña" onChange={this.handleChange} type="password" name="password" required /> <br/> <br/>
+                
+                <input className="input" onChange={this.handleChange} type="text" name="user" required  placeholder="Usuario"/> <br/> <br/>
+                
+                 <input className="input" onChange={this.handleChange} type="password" name="password" required placeholder="Contraseña" /> <br/> <br/>
               <Link to="/Categorias"> <button id="log">Entrar</button></Link> 
             </form>
            </section>

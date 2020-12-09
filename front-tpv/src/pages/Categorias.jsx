@@ -44,7 +44,9 @@ export default class Categorias extends React.Component{
             },
             characters:{
                 results:[]
-            }
+            },
+            loading: true,
+            error:null
         }
     }
 
@@ -81,13 +83,19 @@ export default class Categorias extends React.Component{
                 dato2:''
             },
             visibilidad:'none'
-           
-        }
+        },
+        loading: true,
+        error:null
        })
        Axios.get('https://rickandmortyapi.com/api/episode').then((inve)=>{
-           this.setState({
-               episode: inve.data
-           })
+           try {
+            this.setState({
+                loading:false,
+                episode: inve.data
+            })
+           } catch (error) {
+               console.error('Error-404');
+           }
        })
    }
 
@@ -119,12 +127,19 @@ export default class Categorias extends React.Component{
                 dato2:''
             },
             visibilidad:'none'
-        }
+        },
+        loading:true,
+        error:false
        })
    Axios.get('https://rickandmortyapi.com/api/location/').then((sucursal)=>{
-    this.setState({
-        location: sucursal.data
-    })
+       try {
+        this.setState({
+            loading:false,
+            location: sucursal.data
+        }) 
+       } catch (error) {
+          console.error('Error-404'); 
+       }
    })
     }
 
@@ -156,12 +171,19 @@ export default class Categorias extends React.Component{
                 dato2:'IDTienda'
             },
             visibilidad:''
-        }
-    })
+        },
+        loading:true,
+        error:null
+    });
     Axios.get('https://rickandmortyapi.com/api/character/').then((character)=>{
+        try { 
         this.setState({
+            loading:false,
             characters: character.data
-        });
+        });  
+        } catch (error) {
+            console.error('Error 404');
+        }
     })
     }
 
@@ -190,7 +212,7 @@ export default class Categorias extends React.Component{
                 <Search/>
             </div>
                 <div>
-                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} />
+                    <Table inv={this.state.inve.datos} suc={this.state.sucu.datos} emp={this.state.emple.datos} listInv={this.state.episode.results} listSucu={this.state.location.results} listEmpl={this.state.characters.results} visiSucu={this.state.sucu.visibilidad} visiInve={this.state.inve.visibilidad} visiChar={this.state.emple.visibilidad} load={this.state.loading}/>
                 </div>
                 <div className="main-buttons">
                 <div className="inv-buttons">
