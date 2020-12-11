@@ -10,22 +10,35 @@ import iEmpl from '../media/Grupo 5.png';
 import iVent from '../media/Grupo 9.png';
 export default class Categorias extends React.Component{
 
+
     constructor(props){
         super(props);
         this.state ={
             inve:{
                 name: 'INVENTARIO',
                 borde:'solid white',
+                opborder:{
+                    borde1:'',
+                    borde2:'',
+                    border3:''
+                },
                 datos:{
                     id:'IDProducto',
                     dato1:'Nombre del producto',
-                    dato2:'Precio'
+                    dato2:'Precio',
+                    dato3:'Categoría',
+                    dato4:'Cantida'
                 },
                 visibilidad: ''
             },
             sucu:{
                 name: '',
                 borde:'',
+                opborder:{
+                    borde1:'',
+                    borde2:'',
+                    border3:''
+                },
                 datos:{
                     id:'',
                     dato1:'',
@@ -36,6 +49,11 @@ export default class Categorias extends React.Component{
             emple:{
                 name: '',
                 borde:'',
+                opborder:{
+                    borde1:'',
+                    borde2:'',
+                    border3:''
+                },
                 datos:{
                     id:'',
                     dato1:'',
@@ -52,15 +70,38 @@ export default class Categorias extends React.Component{
             characters:{
                 results:[]
             },
-            loading: true,
-            error:null
+            hamForm:{
+                bar1:'',
+                bar2:'',
+                keyFrame:''
+            }
+           
         }
-    }
+    }   
 
     componentDidMount(){
         this.handleSucu();
         this.handleEmpl();
         this.handleInve();
+    }
+  
+    handleHide = (e)=>{
+        this.setState({
+            hamForm:{
+                bar1:'inline',
+                bar2:'none',
+                keyFrame:'fadeInLeft'
+            }
+        })
+    }
+    handleShow = (e)=>{
+        this.setState({
+            hamForm:{
+                bar1:'none',
+                bar2:'inline',
+                keyFrame:'fadeInRight2'
+            }
+        })
     }
    handleInve = () =>{
        this.setState({
@@ -209,7 +250,7 @@ export default class Categorias extends React.Component{
         return(
         <div className="categorias-main">
 
-            <div className="main-nav">
+            <div className={`main-nav  ${this.state.hamForm.keyFrame}`}>
                <ul>
                   <li style={{border:this.state.inve.borde}}>
                     <img  src={iInve} alt="" onClick={this.handleInve} /> 
@@ -229,22 +270,23 @@ export default class Categorias extends React.Component{
 
 
             <div className="banner">
-                    <Banner invName={this.state.inve.name} sucuName={this.state.sucu.name}  emplName={this.state.emple.name}/>
+                    <Banner show={this.handleShow} hide={this.handleHide} banVal={this.state.hamForm} invName={this.state.inve.name} sucuName={this.state.sucu.name}  emplName={this.state.emple.name}/>
             </div>
               
             <div className="main-buttons">
                 <div className="inv-buttons">
-                    <button style={{display:this.state.inve.visibilidad}}>Inventario</button>
+                    <button style={{display:this.state.inve.visibilidad}} >Inventario</button>
                     <button style={{display:this.state.inve.visibilidad}}>Visualizar Producto</button>
                     <button style={{display:this.state.inve.visibilidad}}>Producto Nuevo</button>
+
                 </div>
                 <div className="suc-buttons">
-                    
+                    <button style={{display:this.state.sucu.visibilidad}} >Sucursales</button>
                     <button style={{display:this.state.sucu.visibilidad}}>Visualizar Sucursal</button>
                     <button style={{display:this.state.sucu.visibilidad}}>Nueva Sucursal</button>
                 </div>
                 <div className="emp-buttons">
-                  
+                    <button style={{display:this.state.emple.visibilidad}} >Empleados</button>
                     <button style={{display:this.state.emple.visibilidad}}>Visualizar Empleado</button>
                     <button style={{display:this.state.emple.visibilidad}}>Nuevo Empleado</button>
                 </div>  

@@ -18,13 +18,9 @@ export default class Table extends React.Component{
                         <td>{empleado.id}</td>
                         <td> {empleado.name} </td>
                         <td> {empleado.episode} </td>
+                        
                     </tr>
                 })}
-                {this.props.loading &&(
-                    <div>
-                        <h1>Loading</h1>
-                    </div>
-                )}
                 {this.props.listSucu.map((sucu)=>{
                     return <tr key={sucu.id} style={{display:this.props.visiSucu}} d>
                         <td> {sucu.id} </td>

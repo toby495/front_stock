@@ -8,6 +8,12 @@
 li img {
     cursor: pointer;
     padding: 3px;
+    width: 40px;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
 }
 
 
@@ -89,7 +95,8 @@ li img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 45px 10px 60px;
+    padding: 20px 40px 10px 20px;
+    position: relative;
 }
 
 .main-buttons {
@@ -113,9 +120,12 @@ li img {
     height: 100%;
 }
 
+.main-nav ul li {
+    padding: 10px;
+}
+
 .banner {
     grid-area: ban;
-    position: relative;
 }
 
 .main-search {
@@ -126,12 +136,12 @@ li img {
     grid-area: tab;
     display: flex;
     justify-content: center;
+    position: static;
 }
 
 .categorias-main {
     display: flex;
     flex-direction: column;
-    grid-template-areas: 'nav ban ban ban ban ' 'nav but but but but' 'nav sear sear sear sear' 'nav tab tab tab tab';
 }
 
 .banner-container img {
@@ -144,6 +154,17 @@ li img {
     color: white;
     font-weight: 520;
     font-size: 20px;
+}
+
+.bar {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.bar2 {
+    padding: 10.1px;
+    cursor: pointer;
+    display: none;
 }
 
 
